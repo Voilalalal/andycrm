@@ -8,7 +8,6 @@ const FormLogin = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    pass_confirm: "",
   });
 
   const handleClick = () => {
@@ -28,7 +27,7 @@ const FormLogin = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/auth/register",
+        "http://localhost:8000/api/auth/login",
         {
           ...formData,
         }
@@ -37,7 +36,6 @@ const FormLogin = () => {
       setFormData({
         email: "",
         password: "",
-        pass_confirm: "",
       });
     } catch (error) {}
   };

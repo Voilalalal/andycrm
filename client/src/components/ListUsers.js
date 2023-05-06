@@ -25,7 +25,6 @@ const ListUser = () => {
     navigate("/users");
   };
 
-
   return (
     <div className="container p-4">
       <div className="row">
@@ -45,17 +44,34 @@ const ListUser = () => {
         <tbody>
           {user.map((user) => (
             <tr key={user._id}>
-              <th>{user.name}</th>
+              <td>
+                <div className="d-flex align-items-center">
+                  <img
+                    src={`/${user.photo}`}
+                    alt="..."
+                    style={{ width: "45px", height: "45px" }}
+                    className="rounded-circle"
+                  />
+
+                  <div className="ms-3">
+                    <p className="fw-bold mb-1">{user.name}</p>
+                  </div>
+                </div>
+              </td>
               <td>{user.lastName}</td>
               <td>{user.email}</td>
               <td>{user.role}</td>
               <td>
-                <Button as={Link} to={`/user/${user._id}`}>
+                <Button
+                  as={Link}
+                  to={`/user/${user._id}`}
+                  variant="outline-primary"
+                >
                   {" "}
                   Editar{" "}
                 </Button>{" "}
                 <button
-                  className="btn btn-danger"
+                  className="btn btn-outline-danger"
                   onClick={(e) => {
                     deleteUser(`${user._id}`);
                   }}
@@ -69,10 +85,10 @@ const ListUser = () => {
         </tbody>
       </table>
       <div className="row p-4">
-          <button className="btn btn-secondary" onClick={handleClick}>
-            Agregar Usuarios
-          </button>
-        </div>
+        <button className="btn btn-secondary" onClick={handleClick}>
+          Agregar Usuarios
+        </button>
+      </div>
     </div>
   );
 };

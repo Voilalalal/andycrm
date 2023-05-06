@@ -11,7 +11,6 @@ const ListUser = () => {
 
   useEffect(() => {
     axios.get("http://localhost:8000/api/usercompany/" + id).then((res) => {
-      
       setUser(res.data);
       console.log(res.data);
     });
@@ -62,7 +61,7 @@ const ListUser = () => {
                     style={{ width: "45px", height: "45px" }}
                     className="rounded-circle"
                   />
-                  
+
                   <div className="ms-3">
                     <p className="fw-bold mb-1">{user.name}</p>
                   </div>
@@ -76,12 +75,16 @@ const ListUser = () => {
               </td>
               <td>{user.role}</td>
               <td>
-                <Button as={Link} to={`/user/${user._id}`}>
+                <Button
+                  as={Link}
+                  to={`/user/${user._id}`}
+                  variant="outline-primary"
+                >
                   {" "}
                   Editar{" "}
                 </Button>{" "}
                 <button
-                  className="btn btn-danger"
+                  className="btn btn-outline-danger"
                   onClick={(e) => {
                     deleteUser(`${user._id}`);
                   }}
@@ -94,7 +97,7 @@ const ListUser = () => {
           ))}
         </tbody>
       </table>
-    
+
       <div className="row">
         <button className="btn btn-success" onClick={handleClicks}>
           Volver al Listado de Compañia

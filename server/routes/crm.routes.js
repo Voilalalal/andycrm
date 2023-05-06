@@ -6,7 +6,7 @@ const ProfileController = require("../controllers/profile.controller");
 
 module.exports = function (app) {
   app.get("/api/user", userController.findAllUser);
-  app.post("/api/user", multerController.upload ,userController.createUser);
+  app.post("/api/user", multerController.upload, userController.createUser);
   app.get("/api/user/:id", userController.getUserId);
   app.put("/api/user/:id", userController.updateUser);
   app.delete("/api/user/:id", userController.deleteUser);
@@ -24,8 +24,6 @@ module.exports = function (app) {
   app.put("/api/meet/:id", meetController.updateMeet);
   app.delete("/api/meet/:id", meetController.deleteMeet);
 
- 
   app.post("/api/auth/register", ProfileController.createProfile);
- 
-   
+  app.post("/api/auth/login", ProfileController.loginProfile);
 };

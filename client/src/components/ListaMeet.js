@@ -46,12 +46,16 @@ const ListMeet = () => {
               <td>{meets.description}</td>
               <td>{meets.date}</td>
               <td>
-                <Button as={Link} to={`/user/${meets._id}`}>
+                <Button
+                  as={Link}
+                  to={`/user/${meets._id}`}
+                  variant="outline-primary"
+                >
                   {" "}
                   Editar{" "}
                 </Button>{" "}
                 <button
-                  className="btn btn-danger"
+                  className="btn btn-outline-danger"
                   onClick={(e) => {
                     deleteUser(`${meets._id}`);
                   }}
